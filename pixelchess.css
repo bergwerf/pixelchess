@@ -1,0 +1,42 @@
+:root {
+  --white: #f3e5ab;
+  --black: #5C4033;
+}
+
+body {
+  margin: 0;
+}
+
+#wrapper {
+  margin: 0 auto;
+  max-width: 40em;
+  text-align: center;
+  font-family: monospace;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: .2em;
+  color: var(--black);
+  background: var(--white);
+  border: .1em solid var(--black);
+}
+
+#board {
+  position: relative;
+  margin: 2em 0;
+  background: var(--black);
+  border: 1em double var(--white);
+}
+
+#board > div > div {
+  display: inline-block;
+  padding: 6.25%;
+  box-sizing: border-box;
+}
+
+#board > div:nth-child(2n) > div:nth-child(2n+1),
+#board > div:nth-child(2n+1) > div:nth-child(2n) {
+  background: var(--white);
+}
+
