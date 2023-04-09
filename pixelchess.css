@@ -33,10 +33,45 @@ h1 {
   display: inline-block;
   padding: 6.25%;
   box-sizing: border-box;
+  position: relative;
 }
 
-#board > div:nth-child(2n) > div:nth-child(2n+1),
-#board > div:nth-child(2n+1) > div:nth-child(2n) {
-  background: var(--white);
+#board > div:nth-child(2n) > div:nth-child(2n),
+#board > div:nth-child(2n+1) > div:nth-child(2n+1) {
+  background-color: var(--white);
 }
 
+.piece > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  image-rendering: pixelated;
+  background-image: url(sprite.png);
+  background-size: 100%;
+}
+
+.piece.black > div {
+  filter: invert(1)
+    drop-shadow(1px 0 0 #fff)
+    drop-shadow(0 1px 0 #fff)
+    drop-shadow(-1px 0 0 #fff)
+    drop-shadow(0 -1px 0 #fff);
+}
+
+.piece:not(.black) > div {
+  filter:
+    drop-shadow(1px 0 0 #000)
+    drop-shadow(0 1px 0 #000)
+    drop-shadow(-1px 0 0 #000)
+    drop-shadow(0 -1px 0 #000);
+}
+
+.piece.none   > div { background-image: none; }
+.piece.pawn   > div { background-position: 100% 600%; }
+.piece.bishop > div { background-position: 100% 500%; }
+.piece.knight > div { background-position: 100% 400%; }
+.piece.rook   > div { background-position: 100% 300%; }
+.piece.queen  > div { background-position: 100% 200%; }
+.piece.king   > div { background-position: 100% 100%; }
